@@ -1,0 +1,103 @@
+/* style.css */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    text-align: center;
+}
+
+div {
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Maximum width */
+}
+
+p {
+    font-size: 80px; /* Adjust based on preference */
+    color: #333; /* Dark grey for easy reading, default for light theme */
+}
+
+/* Dark theme styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212; /* Dark background */
+        color: #e0e0e0; /* Light text */
+    }
+
+    p {
+        color: #e0e0e0; /* Light text for better readability in dark mode */
+    }
+}
+
+/* Light theme styles (if you want to explicitly define it) */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #ffffff; /* Light background, though this is default */
+        color: #333; /* Dark text, already defined above */
+    }
+
+    p {
+        color: #333; /* Dark text color, but keeping for consistency */
+    }
+}
+
+#wrapper {
+    width: 100%; /* Adjust width as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Basic styling */
+.switch {
+    width: 100px;
+    height: 50px;
+    background-color: #4CAF50; /* Start with 'on' color */
+    border-radius: 25px;
+    position: relative;
+    translate: -1rem;
+}
+
+.switch-circle {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    position: absolute;
+    top: 1px;
+    left: 50px; /* Start in the 'on' position */
+    border-radius: 50%;
+}
+
+/* Adjusted animation for the circle to start 'on', move to 'off', then back to 'on' */
+@keyframes moveCircle {
+    0%, 100% {
+        transform: translateX(0); /* End in the 'on' position */
+    }
+    50% {
+        transform: translateX(-50px); /* Move to 'off' position */
+    }
+}
+
+/* Adjusted animation for background color change to start 'on', change to 'off', then back to 'on' */
+@keyframes backgroundColorChange {
+    0%, 100% {
+        background-color: #4CAF50; /* 'on' color */
+    }
+    50% {
+        background-color: #ccc; /* 'off' color */
+    }
+}
+
+.switch-circle {
+    animation: moveCircle 3s;
+}
+
+.switch {
+    animation: backgroundColorChange 3s;
+}
